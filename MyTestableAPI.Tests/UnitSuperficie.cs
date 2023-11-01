@@ -13,7 +13,7 @@ public class UnitAPIPays
         await using var _factory = new WebApplicationFactory<Program>();
         var client = _factory.CreateClient();
 
-        var response = await client.GetAsync("Superficies?pays=France");
+        var response = await client.GetAsync("Superficies/France");
         string stringResponse = await response.Content.ReadAsStringAsync();
 
         response.EnsureSuccessStatusCode();
@@ -27,7 +27,7 @@ public class UnitAPIPays
         await using var _factory = new WebApplicationFactory<Program>();
         var client = _factory.CreateClient();
 
-        var response = await client.GetAsync("Superficies?pays=Wakanda");
+        var response = await client.GetAsync("Superficies/Wakanda");
         string stringResponse = await response.Content.ReadAsStringAsync();
 
 
@@ -40,7 +40,7 @@ public class UnitAPIPays
         await using var _factory = new WebApplicationFactory<Program>();
         var client = _factory.CreateClient();
 
-        var response = await client.GetAsync("Superficies?pays=Vatican");
+        var response = await client.GetAsync("Superficies/Vatican");
         string stringResponse = await response.Content.ReadAsStringAsync();
 
         Assert.Equal("Nous n'avons pas la superficie du pays : Vatican.", stringResponse.ToString());
